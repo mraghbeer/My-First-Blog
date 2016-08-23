@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from myDjango.views import hello, current_datetime, hours_ahead
 urlpatterns = [
+    url(r'^$', hello),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^time/$', current_datetime),
+    url(r'^time/plus/(\d{1,2})/$', hours_ahead),
+    
 ]
